@@ -1,0 +1,39 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()" class="form-group">
+  <div>
+    <label for="_title">Title:</label>
+    <input type="text" id="_title"
+           name="title"
+           [(ngModel)]="newTodo.title"
+           required
+    />
+  </div>
+  <div>
+    <label for="_description">Description:</label>
+    <input type="text" id="_description"
+           name="description"
+           [(ngModel)]="newTodo.description"
+           required
+    />
+  </div>
+  <div>
+    <label for="_date">Date: </label>
+    <input type="text" id="_date"
+           name="date"
+           [(ngModel)]="newTodo.date"
+           required
+    />
+  </div>
+  <div>
+    <label for="_time">Time: </label>
+    <input type="text" id="_time"
+           name="time"
+           [(ngModel)]="newTodo.time"
+           required
+    />
+  </div>
+  <button *ngIf="!editOption"type="submit" [disabled]="!myForm.form.valid">Create New Todo</button>
+  <button *ngIf="editOption && isLogged" type="submit" [disabled]="!myForm.form.valid || !isLogged">Create New Todo From This One</button>
+  <h2 *ngIf="!isLogged">You shoud log in to perform create/edit operations</h2>
+
+</form>
+<button *ngIf="editOption && isLogged" (click)="onEdit(newTodo)"[disabled]="!isLogged">Edit This Todo</button>

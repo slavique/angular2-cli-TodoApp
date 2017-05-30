@@ -1,0 +1,13 @@
+li {
+  height: auto;
+}
+li:hover {
+  background-color: #55ffff;
+}
+button {
+  float: right;
+}
+input {
+  float: left;
+  margin-right: 20px;
+}

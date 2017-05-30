@@ -1,0 +1,10 @@
+<ul class="list-group">
+  <li *ngFor="let item of todos" class="list-group-item"
+    [routerLink]="['/edit', item.id]">
+    <input class="" type="checkbox"/>
+    <div class="todo-body">
+    <!--<div class="todo-body" (click)="editTodo(item)">-->
+      <span>{{item.title}}</span><button class="btn-danger" (click)="removeTodo(item)">remove from the list</button>
+    </div>
+  </li>
+</ul>
